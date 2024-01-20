@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Starbucks</title>
+</head>
+
+<body>
+    
+    <div class="circulo"></div>
+    
+    <img src="../imgStarbucks/logo.png" alt="Logo do Starbucks" class="logo">
+
+    <div class="conteudo">
+        <div class="caixa-texto">
+            <h2>It`s not just Coffe It`s <span>Starbucks</span></h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, perspiciatis dolor quo eligendi
+                doloremque
+                ut dolorum unde harum ea debitis quisquam ad tempora molestias molestiae voluptatum sunt culpa
+                obcaecati.
+            </p>
+            <button>Deixe o seu Like!</button>
+        </div>
+
+        <div class="caixa-imagem">
+            <img src="../imgStarbucks/img1.png" class="starbucks">
+        </div>
+        
+    </div>
+
+    <div class="menu">
+        <img src="../imgStarbucks/img-pequena1.png" class="copo-pequeno verde">
+        <img src="../imgStarbucks/img-pequena2.png" class="copo-pequeno amarelo">
+        <img src="../imgStarbucks/img-pequena3.png" class="copo-pequeno rosa">
+    </div>
+
+
+</body>
+
+<script>
+
+    let circle = document.querySelector(".circulo")
+    let imgCopo = document.querySelector(".starbucks")
+    let amarelo = document.querySelector(".amarelo")
+    let verde = document.querySelector(".verde")
+    let rosa = document.querySelector(".rosa")
+
+    verde.addEventListener("click", () => {
+       imgCopo.src = "../imgStarbucks/img-pequena1.png"
+       circle.style.background = "#017143"
+    })
+
+    amarelo.addEventListener("click", () => {
+        imgCopo.src = "../imgStarbucks/img-pequena2.png"
+        circle.style.background = "#ff6ad3"
+    })
+
+    rosa.addEventListener("click", () => {
+        imgCopo.src = "../imgStarbucks/img-pequena3.png"
+        circle.style.background = "#fa61a2"
+    })
+
+</script>   
+
+</html>
