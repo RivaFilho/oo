@@ -46,6 +46,10 @@ button {
     border-radius: 20px;
 }
 
+button:hover{
+    background-color: aqua;
+}
+
 h2 {
     font-size: 60px;
     font-weight: 500;
