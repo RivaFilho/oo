@@ -1,14 +1,17 @@
 import javax.swing.JOptionPane;
 import cadastros.CadastroAluno;
 import cadastros.CadastroDisciplina;
+import cadastros.CadastroProfessor;
 import view.MenuAluno;
 import view.MenuDisciplina;
 import view.MenuPrincipal;
+import view.MenuProfessor;
 
 public class Principal {
 
     static CadastroAluno cadAluno = new CadastroAluno();
     static CadastroDisciplina cadDisciplina = new CadastroDisciplina();
+    static CadastroProfessor cadProfessor = new CadastroProfessor();
 
     public static void main(String[] args) {
 
@@ -21,7 +24,7 @@ public class Principal {
                     MenuAluno.menuAluno(cadAluno);
                     break;
                 case 2:
-                    JOptionPane.showMessageDialog(null, "Cadastro de professores a ser implementado");
+                   MenuProfessor.menuProfessor(cadProfessor);
                     break;
                 case 3:
                     MenuDisciplina.menuDisciplina(cadDisciplina);
