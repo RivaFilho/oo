@@ -25,10 +25,9 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return "Disciplina{" +
-                "codigo='" + codigo + '\'' +
-                ", nome='" + nome + '\'' +
-                ", professor='" + professor + '\'' +
-                '}';
+        String resposta = "NOME: "+nome+ '\n';
+        resposta += "CODIGO: "+codigo+ '\n';
+        resposta += "PROFESSOR: "+professor+ '\n';
+        return resposta;
     }
 }
