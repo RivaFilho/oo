@@ -18,9 +18,6 @@ public class Professor extends PessoaFisica{
 	public final String getMatriculaFUB() {
 		return matriculaFUB;
 	}
-	protected void finalize() throws Throwable {
-		System.out.println("Destruindo objeto: " + this);
-	}
 	
 	public String toString() {
 		String resposta = super.toString();
