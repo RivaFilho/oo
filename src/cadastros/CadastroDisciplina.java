@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import app.Disciplina;
 
+import javax.swing.*;
+
 public class CadastroDisciplina {
     private List<Disciplina> disciplinas;
 
@@ -22,6 +24,12 @@ public class CadastroDisciplina {
             }
         }
         return null;
+    }
+    public void listarDisciplina(){
+        for(Disciplina disciplina: disciplinas){
+            JOptionPane.showMessageDialog(null,disciplina
+            );
+        }
     }
 
     public boolean removerDisciplina(Disciplina d) {

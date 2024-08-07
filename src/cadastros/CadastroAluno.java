@@ -2,6 +2,8 @@ package cadastros;
 
 import app.Aluno;
 
+import javax.swing.*;
+
 public class CadastroAluno {
 	int numAlunos; 
 	private Aluno[] alunos; 
@@ -10,7 +12,12 @@ public class CadastroAluno {
 		numAlunos = 0;
 		alunos = new Aluno[0];
 	}
-	
+	public void listarAlunos(){
+		for (Aluno aluno : alunos) {
+			 JOptionPane.showMessageDialog(null,"Nome: " + aluno.getNome() + "\nMatrícula: " + aluno.getMatricula());
+		}
+
+	}
 	public int cadastrarAluno(Aluno a) {
 		Aluno[] temp = new Aluno[numAlunos + 1];
 		for (int i=0; i < alunos.length; i++) {

@@ -2,6 +2,8 @@ package cadastros;
 
 import app.Professor;
 
+import javax.swing.*;
+
 public class CadastroProfessor {
     int numProfessores;
     private Professor[] professores;
@@ -12,7 +14,7 @@ public class CadastroProfessor {
     }
 
     public int cadastrarProfessor(Professor p) {
-        Professor[] temp = new Professor[numProfessores + 1];
+        Professor[] temp = new Professor[numProfessores +1];
         for (int i = 0; i < professores.length; i++) {
             temp[i] = professores[i];
         }
@@ -22,6 +24,12 @@ public class CadastroProfessor {
         return numProfessores;
     }
 
+	public void listarProfessor(){
+		for (Professor professore : professores) {
+			JOptionPane.showMessageDialog(null,professore);
+		}
+
+	}
     public Professor pesquisarProfessor(String matriculaFUB) {
         Professor resposta =  null;
 		for (int i=0; i < professores.length; i++) {

@@ -41,6 +41,7 @@ public class MenuProfessor {
                 + "2 - Pesquisar professor\n"
                 + "3 - Atualizar professor\n"
                 + "4 - Remover professor\n"
+                + "5 - Listar professores\n"
                 + "0 - Voltar para menu anterior";
 
         int opcao = -1;
@@ -78,8 +79,10 @@ public class MenuProfessor {
                         JOptionPane.showMessageDialog(null, "Professor removido do cadastro");
                         System.gc();
                     }
-
+                case 5:
+                    cadProfessor.listarProfessor();
                 default:
+
                     break;
             }
         } while (opcao != 0);

@@ -36,6 +36,7 @@ public class MenuDisciplina {
                 + "2 - Pesquisar disciplina\n"
                 + "3 - Atualizar disciplina\n"
                 + "4 - Remover disciplina\n"
+                + "5 - Listar  disciplinas\n"
                 + "0 - Voltar para menu anterior";
 
         int opcao = -1;
@@ -90,7 +91,8 @@ public class MenuDisciplina {
                         }
                     }
                     break;
-
+                case 5:
+                    cadDisciplina.listarDisciplina();
                 default:
                     break;
             }
