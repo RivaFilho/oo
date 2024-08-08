@@ -1,71 +1,56 @@
 package app;
 
-import javax.swing.*;
 import java.util.List;
 
 public class Turmas {
 
     private String nome;
     private String codTurma;
-
     private Disciplina disciplina;
-    private Professor p;
-    private String professor;
-    private String mat_aluno;
+    private String professore;
+    private Professor professor;
+    List <Aluno> alunos;
 
 
-
-    private List <Aluno> alunos;
-
-    public Turmas(String nome, String codTurma, String professor,  List <Aluno> alunos) {
+    public Turmas(String nome, String codTurma, Professor professor, Disciplina disciplina,List <Aluno> alunos) {
         this.nome = nome;
         this.codTurma = codTurma;
         this.professor = professor;
         this.alunos = alunos;
+        this.disciplina = disciplina;
     }
 
     public Disciplina getDisciplina() {
         return disciplina;
     }
 
-    public Professor getP() {
-        return p;
-    }
-
-    public String getProfessor() {
-        return professor;
-    }
-
-    public Turmas(String nome, String codTurma) {
-
-        this.nome = nome;
-        this.codTurma = codTurma;
-    }
-
     public String getNome() {
         return nome;
-    }
-
-
-
-    public void imprimirListaPresenca(){
-        JOptionPane.showMessageDialog(null,"Nome da disciplina:" + disciplina.getNome() + "\nProfessor: " + p.getNome() + "Código da turma: " + codTurma + '\n');
-        for (Aluno aluno : alunos) {
-           JOptionPane.showMessageDialog(null,"Matrícula: " +aluno.getMatricula() + "\nNome: " + aluno.getNome());
-        }
-
-
     }
 
     public String getCodTurma() {
         return codTurma;
     }
 
+    public Professor getProfessor() {
+        return professor;
+    }
+
     @Override
     public String toString() {
-        return "Turmas{" +
-                "nome='" + nome + '\'' +
-                ", codTurma='" + codTurma + '\'' +
-                '}';
+        String resposta = "NOME DA TURMA: " + nome + '\n';
+        resposta += "CODIGO DA TURMA: " + codTurma + '\n';
+        resposta += "PROFESSOR DA TURMA: " + professor.getNome() + '\n';
+        resposta += "Disciplina DA TURMA: " + disciplina.getNome() + '\n';
+//        if (alunos == null) {
+//            resposta += "VAZIO\n";
+//        }
+//
+        for (Aluno aluno : alunos) {
+            resposta += "Aluno: " + aluno.getNome() + '\n';
+            resposta += "Matrícula: " + aluno.getMatricula() + '\n';
+        }
+
+        return resposta;
     }
 }

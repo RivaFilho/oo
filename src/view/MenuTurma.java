@@ -2,10 +2,12 @@ package view;
 
 
 import app.Aluno;
+import app.Disciplina;
 import app.Professor;
 import app.Turmas;
 import cadastros.CadastroAluno;
 import cadastros.CadastroDisciplina;
+import cadastros.CadastroProfessor;
 import cadastros.CadastroTurmas;
 
 import javax.swing.*;
@@ -13,36 +15,53 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuTurma {
-    
 
-    static CadastroDisciplina cadDisciplina;
+
+
 
 
     static Professor p;
     static List<Aluno> alunos = new ArrayList<>();
 
-    public static Turmas dadosNovaTurma() {
-        String codigo = lerCodigo();
+    public static Turmas dadosNovaTurma(CadastroProfessor cadProfessor, CadastroDisciplina cadDisciplina,CadastroAluno cadAluno) {
         String nome = lerNome();
-        String professor = lerProfessor();
-
-        return new Turmas(nome, codigo, professor, lerMatriculaAluno());
+        String codTurma = lerCodigoTurma();
+        String matriculaProfessor = lerMatriculaProfessor();
+        alunos = lerMatriculaAluno(cadAluno);
+        Professor professor = cadProfessor.pesquisarProfessor(matriculaProfessor);
+        Disciplina disciplina = cadDisciplina.pesquisarDisciplina(lerDisciplina());
+        if (professor == null) {
+            JOptionPane.showMessageDialog(null, "Professor não encontrado.");
+            return null;
+        }if (disciplina == null) {
+            JOptionPane.showMessageDialog(null, "Disciplina não encontrada.");
+            return null;
+        }
+        return new Turmas(nome, codTurma, professor,disciplina,alunos);
     }
 
     private static String lerCodigo() {
         return JOptionPane.showInputDialog("Informe o código da Turma: ");
     }
 
+
     private static String lerNome() {
         return JOptionPane.showInputDialog("Informe o nome da turma: ");
     }
 
-    private static String lerProfessor() {
-        return JOptionPane.showInputDialog("Informe o professor da turma: ");
+    private static String lerCodigoTurma() {
+        return JOptionPane.showInputDialog("Informe o código da turma: ");
     }
-    private static String lerMatricula(){return JOptionPane.showInputDialog("Informe a matricula do aluno:  ");}
 
-    private static List<Aluno> lerMatriculaAluno() {
+    private static String lerMatriculaProfessor() {
+        return JOptionPane.showInputDialog("Informe a matrícula FUB do professor: ");
+    } private static String lerDisciplina() {
+        return JOptionPane.showInputDialog("Informe o código da disciplina que o professor ministra: ");
+    }
+
+
+
+    private static List<Aluno> lerMatriculaAluno(CadastroAluno cadAluno) {
         int op = -1;
         List<Aluno> alunos1 = new ArrayList<>();
         do{
@@ -55,18 +74,19 @@ public class MenuTurma {
             switch(op)  {
 
                 case 1:
-                        lerMatricula();
-                    for (Aluno aluno : alunos) {
-                        if(aluno.getMatricula().equalsIgnoreCase(lerMatricula())){alunos1.add(aluno);}
-
+                    String matricula = JOptionPane.showInputDialog("Informe a matrícula do aluno: ");
+                    Aluno aluno = cadAluno.pesquisarAluno(matricula);
+                    if (aluno == null) {
+                        JOptionPane.showMessageDialog(null, "Aluno não encontrado.");
+                    } else {
+                        alunos1.add(aluno);
                     }
+
 
                     break;
                 case 2:
-                    String str = lerMatricula();
-                    for (Aluno aluno : alunos) {
-                        if(aluno.getMatricula().equalsIgnoreCase(str)){alunos1.remove(aluno);}
-                    }
+                    matricula = JOptionPane.showInputDialog("Informe a matrícula do aluno: ");
+                    alunos1.removeIf(aluno1 -> aluno1.getMatricula().equalsIgnoreCase(matricula));
 
                 default:
                     break;
@@ -79,7 +99,8 @@ public class MenuTurma {
         return alunos1;
     }
 
-    public static void menuTurma(CadastroTurmas cadTurma) {
+
+    public static void menuTurma(CadastroTurmas cadTurma, CadastroProfessor cadProfessor, CadastroDisciplina cadDisciplina, CadastroAluno cadAluno) {
         if (cadTurma == null) {
             JOptionPane.showMessageDialog(null, "Erro: CadastroTurma não foi inicializado.");
             return;
@@ -100,8 +121,8 @@ public class MenuTurma {
 
             switch (opcao) {
                 case 1:
-                    Turmas novaTurma = dadosNovaTurma();
-                   cadTurma.cadastrarTurmas(novaTurma);
+                    Turmas novaTurma = dadosNovaTurma(cadProfessor,cadDisciplina,cadAluno);
+                   cadTurma.cadastrarTurma(novaTurma);
                     break;
 
                 case 2:
@@ -119,7 +140,7 @@ public class MenuTurma {
                 case 3:
                     codigo = lerCodigo();
                     if (codigo != null && !codigo.isEmpty()) {
-                        Turmas novaCadastro = dadosNovaTurma();
+                        Turmas novaCadastro = dadosNovaTurma(cadProfessor,cadDisciplina,cadAluno);
                         boolean atualizado = cadTurma.atualizarTurma(codigo, novaCadastro);
                         if (atualizado) {
                             JOptionPane.showMessageDialog(null, "Cadastro atualizado.");
@@ -146,7 +167,10 @@ public class MenuTurma {
                     }
                     break;
                 case 5:
-                    cadTurma.imprimirListaPresenca();
+                    cadTurma.listarTurmas();
+
+
+
 
                     break;
                 default:
