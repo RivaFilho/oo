@@ -4,7 +4,7 @@ public class Disciplina {
     private String codigo;
     private String nome;
     private String professor;
-    Professor professore;
+
 
     public Disciplina(String codigo, String nome, String professor) throws CampoEmBrancoException, ProfessorNaoAtribuidoException, DisciplinaNaoAtribuidaException {
         this.codigo = codigo;
@@ -22,9 +22,7 @@ public class Disciplina {
 
     }
 
-    public Professor getProfessore() {
-        return professore;
-    }
+
 
     public String getCodigo() {
         return codigo;
@@ -42,7 +40,7 @@ public class Disciplina {
     public String toString() {
         String resposta = "NOME: "+nome+ '\n';
         resposta += "CODIGO: "+codigo+ '\n';
-        resposta += "PROFESSOR: "+professore+ '\n';
+        resposta += "PROFESSOR: "+professor+ '\n';
         return resposta;
     }
 }
