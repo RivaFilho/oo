@@ -12,7 +12,11 @@ public class Aluno extends PessoaFisica{
 		if (matricula == null || matricula.trim().isEmpty()) {
 			throw new CampoEmBrancoException("Matrícula");
 
+		}if (nome == null || nome.trim().isEmpty()) {
+			throw new CampoEmBrancoException("Matrícula");
+
 		}
+
 
 
 

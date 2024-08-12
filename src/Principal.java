@@ -19,7 +19,7 @@ public class Principal {
             Aluno a1 = new Aluno("Felipe", "10001", "felipe@unb.br", "10001", "Engenharia de Software");
             Aluno a2 = new Aluno("Joao Igor", "10002", "joao.i@unb.br", "10002", "Psicologia");
             Aluno a3 = new Aluno("Renato", "10003", "renato@unb.br", "10003", "Música");
-            
+
             cadAluno.cadastrarAluno(a1);
             cadAluno.cadastrarAluno(a2);
             cadAluno.cadastrarAluno(a3);

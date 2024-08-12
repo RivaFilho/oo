@@ -2,11 +2,12 @@ package view;
 
 import javax.swing.JOptionPane;
 import app.Professor;
+import app.ProfessorNaoAtribuidoException;
 import cadastros.CadastroProfessor;
 
 public class MenuProfessor {
 
-    public static Professor dadosNovoProfessor() {
+    public static Professor dadosNovoProfessor() throws ProfessorNaoAtribuidoException {
         String nome = lerNome();
         String cpf = lerCPF();
         String email = lerEmail();
@@ -35,7 +36,7 @@ public class MenuProfessor {
         return JOptionPane.showInputDialog("Informe a matrícula FUB do professor: ");
     }
 
-    public static void menuProfessor(CadastroProfessor cadProfessor) {
+    public static void menuProfessor(CadastroProfessor cadProfessor) throws ProfessorNaoAtribuidoException {
         String txt = "Informe a opção desejada \n"
                 + "1 - Cadastrar professor\n"
                 + "2 - Pesquisar professor\n"

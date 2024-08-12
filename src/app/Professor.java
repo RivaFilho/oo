@@ -9,6 +9,9 @@ public class Professor extends PessoaFisica{
 		super(nome, cpf, email);
 		this.areaFormacao = areaFormacao;
 		this.matriculaFUB = matriculaFUB;
+
+
+
 	}
 
 	public final String getAreaFormacao() {
