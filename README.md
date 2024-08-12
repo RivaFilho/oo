@@ -3,7 +3,10 @@ UnB - Universidade de Brasilia
 FGA - Faculdade do Gama  
 OO - Orientação por Objetos  
 Prof. André Luiz Peron Martins Lanna  
-
+Grupo: Felipe Pedroza (231026330)
+       Carlos Henrique Paiva (221022480)
+       Rivadalvio Joaquim (232024026)
+       
 #### Trabalho Prático de Orientação por Objetos 
 ---
 
