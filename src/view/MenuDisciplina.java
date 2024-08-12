@@ -87,6 +87,7 @@ public class MenuDisciplina {
                             boolean removido = cadDisciplina.removerDisciplina(remover);
                             if (removido) {
                                 JOptionPane.showMessageDialog(null, "Disciplina removida do cadastro");
+                                System.gc();
                             } else {
                                 JOptionPane.showMessageDialog(null, "Falha ao remover disciplina.");
                             }

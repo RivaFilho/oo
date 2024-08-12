@@ -89,7 +89,7 @@ public class MenuTurma {
                 case 2:
                     matricula = JOptionPane.showInputDialog("Informe a matrícula do aluno: ");
                     alunos1.removeIf(aluno1 -> aluno1.getMatricula().equalsIgnoreCase(matricula));
-
+                    System.gc();
                 default:
                     break;
 
@@ -160,6 +160,7 @@ public class MenuTurma {
                             boolean removido = cadTurma.removerTurma(remover);
                             if (removido) {
                                 JOptionPane.showMessageDialog(null, "Turma removida do cadastro");
+                                System.gc();
                             } else {
                                 JOptionPane.showMessageDialog(null, "Falha ao remover turma.");
                             }
