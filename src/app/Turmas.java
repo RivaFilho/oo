@@ -14,6 +14,12 @@ public class Turmas {
 
     public Turmas(String nome, String codTurma, Professor professor, Disciplina disciplina,List <Aluno> alunos) throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException  {
 
+        this.nome = nome;
+        this.codTurma = codTurma;
+        this.professor = professor;
+        this.alunos = alunos;
+        this.disciplina = disciplina;
+
         if (codTurma == null || codTurma.trim().isEmpty()) {
             throw new CampoEmBrancoException("Código da turma");
         }if (nome == null || nome.trim().isEmpty()) {
@@ -26,11 +32,7 @@ public class Turmas {
             throw new ProfessorNaoAtribuidoException();
         }
 
-        this.nome = nome;
-        this.codTurma = codTurma;
-        this.professor = professor;
-        this.alunos = alunos;
-        this.disciplina = disciplina;
+
     }
 
     public Disciplina getDisciplina() {

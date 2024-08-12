@@ -17,13 +17,13 @@ public class Principal {
     public static void main(String[] args) throws ProfessorNaoAtribuidoException, CampoEmBrancoException, DisciplinaNaoAtribuidaException {
         try {
             Aluno a1 = new Aluno("Felipe", "10001", "felipe@unb.br", "10001", "Engenharia de Software");
-            Aluno a2 = new Aluno("Joao Inacio", "10002", "joao.i@unb.br", "10002", "Psicologia");
+            Aluno a2 = new Aluno("Joao Igor", "10002", "joao.i@unb.br", "10002", "Psicologia");
             Aluno a3 = new Aluno("Renato", "10003", "renato@unb.br", "10003", "Música");
-            Aluno a4 = new Aluno("Luel", "10004", "renato@unb.br", null, "Educacao Fisica");
+            
             cadAluno.cadastrarAluno(a1);
             cadAluno.cadastrarAluno(a2);
             cadAluno.cadastrarAluno(a3);
-            cadAluno.cadastrarAluno(a4);
+
 
             Professor p1 = new Professor("Andre Lanna", "10234", "andre.lanna@unb.br", "Ciencia da Computacao", "1255");
             Professor p2 = new Professor("Thiago", "10235", "thiago@unb.br", "Engenharia elétrica", "2442");

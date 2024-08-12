@@ -34,8 +34,9 @@ public class MenuTurma {
             JOptionPane.showMessageDialog(null, "Disciplina não encontrada.");
             return null;
         }
-       if(!disciplina.getProfessor().equals(professor)) {
+       if(!disciplina.getProfessor().equals(professor.getNome())) {
             JOptionPane.showMessageDialog(null,"O código digitado não corresponde ao que o professor ministra.");
+            disciplina = null;
        }
 
         return new Turmas(nome, codTurma, professor,disciplina,alunos);

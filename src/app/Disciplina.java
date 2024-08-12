@@ -7,7 +7,9 @@ public class Disciplina {
     Professor professore;
 
     public Disciplina(String codigo, String nome, String professor) throws CampoEmBrancoException, ProfessorNaoAtribuidoException, DisciplinaNaoAtribuidaException {
-
+        this.codigo = codigo;
+        this.nome = nome;
+        this.professor = professor;
         if (nome == null || nome.trim().isEmpty()) {
             throw new CampoEmBrancoException("Nome da disciplina");
         }
@@ -17,9 +19,7 @@ public class Disciplina {
             throw new ProfessorNaoAtribuidoException();
         }
 
-        this.codigo = codigo;
-        this.nome = nome;
-        this.professor = professor;
+
     }
 
     public Professor getProfessore() {
@@ -42,7 +42,7 @@ public class Disciplina {
     public String toString() {
         String resposta = "NOME: "+nome+ '\n';
         resposta += "CODIGO: "+codigo+ '\n';
-        resposta += "PROFESSOR: "+professor+ '\n';
+        resposta += "PROFESSOR: "+professore+ '\n';
         return resposta;
     }
 }
