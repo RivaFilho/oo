@@ -25,6 +25,7 @@ O programa é dividido em 3 segmentos:
 -  App
 -  View
 -  Cadastros
+![Imagem ilustrativa do programa](https://github.com/user-attachments/assets/03f25cd6-7419-4331-95b2-6597ee91a472)
 
 Dentro deles, existe todos os comandos de pesquisar, atualizar, remover e cadastrar as entidades.
 O programa, deve ser executado da maneira que foi colocado no arquivo principal deste trabalho, no 
