@@ -1,12 +1,16 @@
 package view;
 
 import javax.swing.JOptionPane;
+
+import app.CampoEmBrancoException;
 import app.Disciplina;
+import app.DisciplinaNaoAtribuidaException;
+import app.ProfessorNaoAtribuidoException;
 import cadastros.CadastroDisciplina;
 
 public class MenuDisciplina {
 
-    public static Disciplina dadosNovaDisciplina() {
+    public static Disciplina dadosNovaDisciplina() throws CampoEmBrancoException, ProfessorNaoAtribuidoException, DisciplinaNaoAtribuidaException {
         String codigo = lerCodigo();
         String nome = lerNome();
         String professor = lerProfessor();
@@ -25,7 +29,7 @@ public class MenuDisciplina {
         return JOptionPane.showInputDialog("Informe o professor da disciplina: ");
     }
 
-    public static void menuDisciplina(CadastroDisciplina cadDisciplina) {
+    public static void menuDisciplina(CadastroDisciplina cadDisciplina) throws ProfessorNaoAtribuidoException, CampoEmBrancoException, DisciplinaNaoAtribuidaException {
         if (cadDisciplina == null) {
             JOptionPane.showMessageDialog(null, "Erro: CadastroDisciplina não foi inicializado.");
             return;

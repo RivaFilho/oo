@@ -6,7 +6,17 @@ public class Disciplina {
     private String professor;
     Professor professore;
 
-    public Disciplina(String codigo, String nome, String professor) {
+    public Disciplina(String codigo, String nome, String professor) throws CampoEmBrancoException, ProfessorNaoAtribuidoException, DisciplinaNaoAtribuidaException {
+
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new CampoEmBrancoException("Nome da disciplina");
+        }
+        if (codigo == null || codigo.trim().isEmpty()) {
+            throw new DisciplinaNaoAtribuidaException();
+        }if (professor == null || professor.trim().isEmpty()) {
+            throw new ProfessorNaoAtribuidoException();
+        }
+
         this.codigo = codigo;
         this.nome = nome;
         this.professor = professor;

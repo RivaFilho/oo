@@ -5,8 +5,14 @@ public class Aluno extends PessoaFisica{
 	String matricula, 
 	       curso;
 	
-	public Aluno(String nome, String cpf, String email, String matricula, String curso) {
+	public Aluno(String nome, String cpf, String email, String matricula, String curso) throws CampoEmBrancoException  {
 		super(nome, cpf, email);
+		if (matricula == null || matricula.trim().isEmpty()) {
+			throw new CampoEmBrancoException("Matrícula");
+
+		}
+
+
 		this.matricula = matricula;
 		this.curso = curso;
 	}

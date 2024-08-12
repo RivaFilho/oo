@@ -1,10 +1,7 @@
 package view;
 
 
-import app.Aluno;
-import app.Disciplina;
-import app.Professor;
-import app.Turmas;
+import app.*;
 import cadastros.CadastroAluno;
 import cadastros.CadastroDisciplina;
 import cadastros.CadastroProfessor;
@@ -23,7 +20,7 @@ public class MenuTurma {
     static Professor p;
     static List<Aluno> alunos = new ArrayList<>();
 
-    public static Turmas dadosNovaTurma(CadastroProfessor cadProfessor, CadastroDisciplina cadDisciplina,CadastroAluno cadAluno) {
+    public static Turmas dadosNovaTurma(CadastroProfessor cadProfessor, CadastroDisciplina cadDisciplina,CadastroAluno cadAluno) throws ProfessorNaoAtribuidoException, CampoEmBrancoException, DisciplinaNaoAtribuidaException {
         String nome = lerNome();
         String codTurma = lerCodigoTurma();
         String matriculaProfessor = lerMatriculaProfessor();
@@ -37,6 +34,10 @@ public class MenuTurma {
             JOptionPane.showMessageDialog(null, "Disciplina não encontrada.");
             return null;
         }
+       if(!disciplina.getProfessor().equals(professor)) {
+            JOptionPane.showMessageDialog(null,"O código digitado não corresponde ao que o professor ministra.");
+       }
+
         return new Turmas(nome, codTurma, professor,disciplina,alunos);
     }
 
@@ -100,7 +101,7 @@ public class MenuTurma {
     }
 
 
-    public static void menuTurma(CadastroTurmas cadTurma, CadastroProfessor cadProfessor, CadastroDisciplina cadDisciplina, CadastroAluno cadAluno) {
+    public static void menuTurma(CadastroTurmas cadTurma, CadastroProfessor cadProfessor, CadastroDisciplina cadDisciplina, CadastroAluno cadAluno) throws ProfessorNaoAtribuidoException, CampoEmBrancoException, DisciplinaNaoAtribuidaException {
         if (cadTurma == null) {
             JOptionPane.showMessageDialog(null, "Erro: CadastroTurma não foi inicializado.");
             return;

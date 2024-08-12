@@ -3,11 +3,12 @@ package view;
 import javax.swing.JOptionPane;
 
 import app.Aluno;
+import app.CampoEmBrancoException;
 import cadastros.CadastroAluno;
 
 public class MenuAluno {
 
-    public static Aluno dadosNovoAluno() {
+    public static Aluno dadosNovoAluno() throws CampoEmBrancoException {
         String nome = lerNome();
         String cpf = lerCPF();
         String email = lerEmail();
@@ -36,7 +37,7 @@ public class MenuAluno {
         return JOptionPane.showInputDialog("Informe a matricula do aluno: ");
     }
 
-    public static void menuAluno(CadastroAluno cadAluno) {
+    public static void menuAluno(CadastroAluno cadAluno) throws CampoEmBrancoException {
         String txt = "Informe a opção desejada \n"
                 + "1 - Cadastrar aluno\n"
                 + "2 - Pesquisar aluno\n"

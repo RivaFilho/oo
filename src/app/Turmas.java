@@ -12,7 +12,20 @@ public class Turmas {
     List <Aluno> alunos;
 
 
-    public Turmas(String nome, String codTurma, Professor professor, Disciplina disciplina,List <Aluno> alunos) {
+    public Turmas(String nome, String codTurma, Professor professor, Disciplina disciplina,List <Aluno> alunos) throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException  {
+
+        if (codTurma == null || codTurma.trim().isEmpty()) {
+            throw new CampoEmBrancoException("Código da turma");
+        }if (nome == null || nome.trim().isEmpty()) {
+            throw new CampoEmBrancoException("Código da turma");
+        }
+        if (disciplina == null) {
+            throw new DisciplinaNaoAtribuidaException();
+        }
+        if (professor == null) {
+            throw new ProfessorNaoAtribuidoException();
+        }
+
         this.nome = nome;
         this.codTurma = codTurma;
         this.professor = professor;
